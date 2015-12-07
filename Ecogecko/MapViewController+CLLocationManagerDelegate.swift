@@ -22,16 +22,13 @@ extension MapViewController : CLLocationManagerDelegate {
         
         // update the label over the map
         if self.currentLocation != nil {
-            let lat = self.currentLocation!.coordinate.latitude
-            let lon = self.currentLocation!.coordinate.longitude
-            let latDir = (lat >= 0) ? "N" : "S"
-            let lonDir = (lon >= 0) ? "E" : "W"
-            let format = (interfaceOrientation == .Portrait) ? "%.6f %@\n %.6f %@" : "%.6f %@, %.6f %@"
-            locationLabel.text = String(format: format, arguments: [lat, latDir, lon, lonDir])
+            let lat = latString(currentLocation!)
+            let lon = lonString(currentLocation!)
+            let format = (interfaceOrientation == .Portrait) ? "%@\n %@" : "%@, %@"
+            locationLabel.text = String(format: format, arguments: [lat, lon])
         } else {
             locationLabel.text = "No GPS lock"
         }
-        
     }
     
 }

@@ -16,6 +16,8 @@
 		E58844F81C154AA0008C2E09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58844F71C154AA0008C2E09 /* MapKit.framework */; };
 		E58844FA1C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */; };
 		E58844FC1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */; };
+		E58844FF1C156BD5008C2E09 /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */; };
+		E58845001C156BD5008C2E09 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FE1C156BD5008C2E09 /* Site.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E58844F71C154AA0008C2E09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E58844FE1C156BD5008C2E09 /* Site.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				E58844EE1C154A5D008C2E09 /* LaunchScreen.storyboard */,
 				E58844F11C154A5D008C2E09 /* Info.plist */,
 				E58844E91C154A5D008C2E09 /* Ecogecko.xcdatamodeld */,
+				E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */,
+				E58844FE1C156BD5008C2E09 /* Site.swift */,
 				E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */,
 			);
 			path = Ecogecko;
@@ -154,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58845001C156BD5008C2E09 /* Site.swift in Sources */,
+				E58844FF1C156BD5008C2E09 /* Site+CoreDataProperties.swift in Sources */,
 				E58844FA1C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift in Sources */,
 				E58844E51C154A5D008C2E09 /* MapViewController.swift in Sources */,
 				E58844EB1C154A5D008C2E09 /* Ecogecko.xcdatamodeld in Sources */,
