@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		E58844E31C154A5D008C2E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844E21C154A5D008C2E09 /* AppDelegate.swift */; };
-		E58844E51C154A5D008C2E09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844E41C154A5D008C2E09 /* ViewController.swift */; };
+		E58844E51C154A5D008C2E09 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844E41C154A5D008C2E09 /* MapViewController.swift */; };
 		E58844E81C154A5D008C2E09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58844E61C154A5D008C2E09 /* Main.storyboard */; };
 		E58844EB1C154A5D008C2E09 /* Ecogecko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E58844E91C154A5D008C2E09 /* Ecogecko.xcdatamodeld */; };
 		E58844ED1C154A5D008C2E09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58844EC1C154A5D008C2E09 /* Assets.xcassets */; };
 		E58844F01C154A5D008C2E09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58844EE1C154A5D008C2E09 /* LaunchScreen.storyboard */; };
+		E58844F81C154AA0008C2E09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58844F71C154AA0008C2E09 /* MapKit.framework */; };
+		E58844FA1C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */; };
+		E58844FC1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E58844DF1C154A5D008C2E09 /* Ecogecko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecogecko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58844E21C154A5D008C2E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E58844E41C154A5D008C2E09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E58844E41C154A5D008C2E09 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E58844E71C154A5D008C2E09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E58844EA1C154A5D008C2E09 /* Ecogecko.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ecogecko.xcdatamodel; sourceTree = "<group>"; };
 		E58844EC1C154A5D008C2E09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E58844EF1C154A5D008C2E09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E58844F11C154A5D008C2E09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E58844F71C154AA0008C2E09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58844F81C154AA0008C2E09 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,7 @@
 		E58844D61C154A5D008C2E09 = {
 			isa = PBXGroup;
 			children = (
+				E58844F71C154AA0008C2E09 /* MapKit.framework */,
 				E58844E11C154A5D008C2E09 /* Ecogecko */,
 				E58844E01C154A5D008C2E09 /* Products */,
 			);
@@ -57,12 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				E58844E21C154A5D008C2E09 /* AppDelegate.swift */,
-				E58844E41C154A5D008C2E09 /* ViewController.swift */,
+				E58844E41C154A5D008C2E09 /* MapViewController.swift */,
+				E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */,
 				E58844E61C154A5D008C2E09 /* Main.storyboard */,
 				E58844EC1C154A5D008C2E09 /* Assets.xcassets */,
 				E58844EE1C154A5D008C2E09 /* LaunchScreen.storyboard */,
 				E58844F11C154A5D008C2E09 /* Info.plist */,
 				E58844E91C154A5D008C2E09 /* Ecogecko.xcdatamodeld */,
+				E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */,
 			);
 			path = Ecogecko;
 			sourceTree = "<group>";
@@ -100,6 +110,11 @@
 					E58844DE1C154A5D008C2E09 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = RZGK26E8DQ;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -139,8 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58844E51C154A5D008C2E09 /* ViewController.swift in Sources */,
+				E58844FA1C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift in Sources */,
+				E58844E51C154A5D008C2E09 /* MapViewController.swift in Sources */,
 				E58844EB1C154A5D008C2E09 /* Ecogecko.xcdatamodeld in Sources */,
+				E58844FC1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift in Sources */,
 				E58844E31C154A5D008C2E09 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +308,7 @@
 				E58844F61C154A5D008C2E09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
