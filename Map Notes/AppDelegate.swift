@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Ecogecko
+//  Map Notes
 //
 //  Created by Rajan Fernandez on 7/12/15.
 //  Copyright © 2015 Rajan Fernandez. All rights reserved.
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.ecogecko.Ecogecko" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.rajanfernandez.MapNotes" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]
     }()

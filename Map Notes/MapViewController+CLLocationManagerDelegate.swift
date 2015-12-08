@@ -1,6 +1,6 @@
 //
 //  MapViewController+CLLocationManagerDelegate.swift
-//  Ecogecko
+//  Map Notes
 //
 //  Created by Rajan Fernandez on 7/12/15.
 //  Copyright © 2015 Rajan Fernandez. All rights reserved.
@@ -24,8 +24,7 @@ extension MapViewController : CLLocationManagerDelegate {
         if self.currentLocation != nil {
             let lat = latString(currentLocation!)
             let lon = lonString(currentLocation!)
-            let format = (interfaceOrientation == .Portrait) ? "%@\n %@" : "%@, %@"
-            locationLabel.text = String(format: format, arguments: [lat, lon])
+            locationLabel.text = String(format: "%@, %@", arguments: [lat, lon])
         } else {
             locationLabel.text = "No GPS lock"
         }

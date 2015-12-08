@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Ecogecko
+//  Map Notes
 //
 //  Created by Rajan Fernandez on 7/12/15.
 //  Copyright © 2015 Rajan Fernandez. All rights reserved.
@@ -16,6 +16,8 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationLabel: UILabel!
+    
+//    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -53,31 +55,34 @@ class MapViewController: UIViewController {
 
     @IBAction func dropPin(sender: AnyObject) {
         
-        if currentLocation != nil {
-            
-            // Save the current location
-            let message = String(format: "%@, %@\n\nPlease enter a description", arguments: [latString(self.currentLocation!), lonString(self.currentLocation!)])
-            let alert = UIAlertController(title: "Save location", message: message, preferredStyle: .Alert)
-            alert.addTextFieldWithConfigurationHandler({ (text) -> Void in
-                text.placeholder = "Site description"
-            })
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            let saveAction = UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
-                let description = alert.textFields!.first!.text
-                self.saveSiteWithLocation(self.currentLocation!, title: description)
-            })
-            alert.addAction(cancelAction)
-            alert.addAction(saveAction)
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        } else {
-            
-            // Location manager has not determined the location yet
-            let alert = UIAlertController(title: "Unknown location", message: "Please wait for the GPS location to update.", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
+        let siteDetailView = self.storyboard?.instantiateViewControllerWithIdentifier("SiteDetailNav")
+        self.presentViewController(siteDetailView!, animated: true, completion: nil)
+        
+//        if currentLocation != nil {
+//            
+//            // Save the current location
+//            let message = String(format: "%@, %@\n\nPlease enter a description", arguments: [latString(self.currentLocation!), lonString(self.currentLocation!)])
+//            let alert = UIAlertController(title: "Save location", message: message, preferredStyle: .Alert)
+//            alert.addTextFieldWithConfigurationHandler({ (text) -> Void in
+//                text.placeholder = "Site description"
+//            })
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+//            let saveAction = UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
+//                let description = alert.textFields!.first!.text
+//                self.saveSiteWithLocation(self.currentLocation!, title: description)
+//            })
+//            alert.addAction(cancelAction)
+//            alert.addAction(saveAction)
+//            self.presentViewController(alert, animated: true, completion: nil)
+//            
+//        } else {
+//            
+//            // Location manager has not determined the location yet
+//            let alert = UIAlertController(title: "Unknown location", message: "Please wait for the GPS location to update.", preferredStyle: .Alert)
+//            alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//            
+//        }
         
     }
     
@@ -115,6 +120,10 @@ class MapViewController: UIViewController {
         let lonString = String(format: "%.6f, %@", arguments: [lon, lonDir])
         
         return lonString
+        
+    }
+    
+    @IBAction func siteDetailWasCancelled (sender: AnyObject) {
         
     }
 
