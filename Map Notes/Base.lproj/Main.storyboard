@@ -180,22 +180,41 @@
             </objects>
             <point key="canvasLocation" x="1902" y="289"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Site List Table View Controller-->
         <scene sceneID="9Fv-52-P7w">
             <objects>
-                <tableViewController id="aNp-Ci-P1R" sceneMemberID="viewController">
+                <tableViewController id="aNp-Ci-P1R" customClass="SiteListTableViewController" customModule="Map_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7gq-6T-6es">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eQL-wR-hqw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SiteCell" textLabel="fdi-oZ-eWl" detailTextLabel="MLT-rH-6Os" style="IBUITableViewCellStyleSubtitle" id="eQL-wR-hqw">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQL-wR-hqw" id="99F-QS-JLl">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fdi-oZ-eWl">
+                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MLT-rH-6Os">
+                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
@@ -208,9 +227,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="yDc-cj-AFe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LLs-0q-4oF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="LLs-0q-4oF">
                             <connections>
-                                <segue destination="xxx-CM-cDe" kind="unwind" unwindAction="cancelButton:" id="34J-tp-U0C"/>
+                                <segue destination="xxx-CM-cDe" kind="unwind" unwindAction="doneButton:" id="fxo-1I-6c8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

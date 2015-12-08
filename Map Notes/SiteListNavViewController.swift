@@ -21,7 +21,7 @@ class SiteListNavViewController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelButton(segue: UIStoryboardSegue) {
+    @IBAction func doneButton(segue: UIStoryboardSegue) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         

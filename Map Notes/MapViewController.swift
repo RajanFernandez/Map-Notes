@@ -17,8 +17,6 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationLabel: UILabel!
     
-//    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-    
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var locations = [Site]()
@@ -39,7 +37,7 @@ class MapViewController: UIViewController {
         // load the sites in the database
         let request = NSFetchRequest(entityName: "Site")
         do {
-            self.locations = try moc.executeFetchRequest(request) as! [Site]
+            locations = try moc.executeFetchRequest(request) as! [Site]
         } catch {
             print("Failed to get sites from the database")
         }

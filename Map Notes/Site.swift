@@ -26,7 +26,43 @@ class Site: NSManagedObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return "Subtitle"
+        return coordinatesString()
     }
+    
+    func latString() -> String? {
+        
+        if latitude != nil {
+            
+            let north = latitude!.doubleValue >= 0.0 ? true : false
+            let lat = north ? latitude!.doubleValue : latitude!.doubleValue * -1
+            let latDir = north ? "N" : "S"
+            return String(format: "%.6f %@", arguments: [lat, latDir])
+            
+        }
+        return nil
+    }
+    
+    func lonString() -> String? {
+        
+        if longitude != nil {
+            
+            let east = longitude!.doubleValue >= 0.0 ? true : false
+            let lon = east ? longitude!.doubleValue : longitude!.doubleValue * -1
+            let lonDir = east ? "E" : "W"
+            return String(format: "%.6f %@", arguments: [lon, lonDir])
+            
+        }
+        return nil
+    }
+    
+    func coordinatesString() -> String? {
+        
+        if latString() != nil && lonString() != nil {
+            return String(format: "%@, %@", arguments: [latString()!, lonString()!])
+        }
+        return nil
+    }
+    
+    
     
 }
