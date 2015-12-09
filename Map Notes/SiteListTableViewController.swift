@@ -30,6 +30,8 @@ class SiteListTableViewController: UITableViewController {
             print("Failed to get sites from the database")
         }
         
+        tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {

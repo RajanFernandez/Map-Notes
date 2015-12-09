@@ -170,7 +170,12 @@ class SiteDetailTableViewController: UITableViewController {
         // save the site and return
         do {
             try moc.save()
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            if self.navigationController?.viewControllers.count > 1 {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
         } catch {
             
             let alert = UIAlertController(title: "Error", message: "Sorry, there was an error saving the site", preferredStyle: .Alert)
