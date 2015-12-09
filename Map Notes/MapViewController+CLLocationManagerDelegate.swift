@@ -20,11 +20,9 @@ extension MapViewController : CLLocationManagerDelegate {
             self.currentLocation = locations[0]
         }
         
-        // update the label over the map
+        // update the coordinates label view over the map
         if self.currentLocation != nil {
-            let lat = latString(currentLocation!)
-            let lon = lonString(currentLocation!)
-            locationLabel.text = String(format: "%@, %@", arguments: [lat, lon])
+            locationLabel.text = coordinateString(currentLocation!)
         } else {
             locationLabel.text = "No GPS lock"
         }

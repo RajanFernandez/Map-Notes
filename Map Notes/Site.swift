@@ -13,11 +13,10 @@ import MapKit
 
 class Site: NSManagedObject, MKAnnotation {
 
-    func setWithCLLocation(location: CLLocation, andTitle title: String?) {
+    func setWithCLLocation(location: CLLocation) {
 
         self.latitude = location.coordinate.latitude
         self.longitude = location.coordinate.longitude
-        self.title = title
         
     }
     

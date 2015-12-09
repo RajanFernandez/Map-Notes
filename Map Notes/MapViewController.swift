@@ -26,12 +26,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up the location manager
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        
         mapView.showsUserLocation = true
         
         // load the sites in the database
@@ -45,49 +39,40 @@ class MapViewController: UIViewController {
         self.mapView.addAnnotations(self.locations)
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        // set up the location manager
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func dropPin(sender: AnyObject) {
-        
-        let siteDetailView = self.storyboard?.instantiateViewControllerWithIdentifier("SiteDetailNav")
-        self.presentViewController(siteDetailView!, animated: true, completion: nil)
-        
+//    @IBAction func dropPin(sender: AnyObject) {
+//        
 //        if currentLocation != nil {
 //            
-//            // Save the current location
-//            let message = String(format: "%@, %@\n\nPlease enter a description", arguments: [latString(self.currentLocation!), lonString(self.currentLocation!)])
-//            let alert = UIAlertController(title: "Save location", message: message, preferredStyle: .Alert)
-//            alert.addTextFieldWithConfigurationHandler({ (text) -> Void in
-//                text.placeholder = "Site description"
-//            })
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-//            let saveAction = UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
-//                let description = alert.textFields!.first!.text
-//                self.saveSiteWithLocation(self.currentLocation!, title: description)
-//            })
-//            alert.addAction(cancelAction)
-//            alert.addAction(saveAction)
-//            self.presentViewController(alert, animated: true, completion: nil)
+//            let siteDetailView = self.storyboard?.instantiateViewControllerWithIdentifier("SiteDetailView") as! SiteDetailTableViewController
+//            siteDetailView.currentLocation = currentLocation
+//            self.presentViewController(siteDetailView, animated: true, completion: nil)
 //            
 //        } else {
-//            
-//            // Location manager has not determined the location yet
-//            let alert = UIAlertController(title: "Unknown location", message: "Please wait for the GPS location to update.", preferredStyle: .Alert)
-//            alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            
+//            print("No GPS Lock")
 //        }
-        
-    }
+//    }
     
-    func saveSiteWithLocation(location: CLLocation, title: String?) {
+    func saveSiteWithLocation(location: CLLocation) -> NSManagedObjectID {
         
+        // save the new site to the store
         let site = NSEntityDescription.insertNewObjectForEntityForName(SITE_ENTITY, inManagedObjectContext: moc) as! Site
-        site.setWithCLLocation(location, andTitle: title)
+        site.setWithCLLocation(location)
         
         do {
             try moc.save()
@@ -95,33 +80,52 @@ class MapViewController: UIViewController {
             print("Failed to save location")
         }
         
+        // update the map and the view controller
         self.mapView.addAnnotation(site)
-        
         self.locations.append(site)
+        
+        // return the new site id
+        return site.objectID
         
     }
     
     func latString(location: CLLocation) -> String {
         
-        let lat = self.currentLocation!.coordinate.latitude
-        let latDir = (lat >= 0) ? "N" : "S"
-        let latString = String(format: "%.6f, %@", arguments: [lat, latDir])
+        let latitiude = self.currentLocation!.coordinate.latitude
         
-        return latString
-    
+        let north = latitiude >= 0.0 ? true : false
+        let lon = north ? latitiude : latitiude * -1
+        let lonDir = north ? "N" : "S"
+        
+        return String(format: "%.6f %@", arguments: [lon, lonDir])
     }
     
     func lonString(location: CLLocation) -> String {
       
-        let lon = self.currentLocation!.coordinate.longitude
-        let lonDir = (lon >= 0) ? "E" : "W"
-        let lonString = String(format: "%.6f, %@", arguments: [lon, lonDir])
+        let longitude = self.currentLocation!.coordinate.longitude
         
-        return lonString
+        let east = longitude >= 0.0 ? true : false
+        let lon = east ? longitude : longitude * -1
+        let lonDir = east ? "E" : "W"
         
+        return String(format: "%.6f %@", arguments: [lon, lonDir])
     }
     
-    @IBAction func siteDetailWasCancelled (sender: AnyObject) {
+    func coordinateString(location: CLLocation) -> String {
+        
+        return String(format: "%@, %@", arguments: [latString(location), lonString(location)])
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "DropPin" {
+            let siteDetailNavVC = segue.destinationViewController as! UINavigationController
+            let siteDetailVC = siteDetailNavVC.viewControllers.first as! SiteDetailTableViewController
+            siteDetailVC.currentLocation = currentLocation
+        }
+        
         
     }
 

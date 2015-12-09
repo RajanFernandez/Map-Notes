@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E56A15241C16D3FE00FDE409 /* SiteDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A15231C16D3FE00FDE409 /* SiteDetailNavViewController.swift */; };
-		E56A15261C16D5AF00FDE409 /* SiteListNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A15251C16D5AF00FDE409 /* SiteListNavViewController.swift */; };
 		E56A15281C16DA9000FDE409 /* SiteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A15271C16DA9000FDE409 /* SiteListTableViewController.swift */; };
+		E56A152A1C17840500FDE409 /* SiteDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A15291C17840500FDE409 /* SiteDetailTableViewController.swift */; };
+		E56A152C1C178F6000FDE409 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A152B1C178F6000FDE409 /* TitleTableViewCell.swift */; };
 		E58844E31C154A5D008C2E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844E21C154A5D008C2E09 /* AppDelegate.swift */; };
 		E58844E51C154A5D008C2E09 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844E41C154A5D008C2E09 /* MapViewController.swift */; };
 		E58844E81C154A5D008C2E09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58844E61C154A5D008C2E09 /* Main.storyboard */; };
@@ -21,12 +21,13 @@
 		E58844FC1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */; };
 		E58844FF1C156BD5008C2E09 /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */; };
 		E58845001C156BD5008C2E09 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FE1C156BD5008C2E09 /* Site.swift */; };
+		E593CF071C17D5D00076A8B0 /* SiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593CF061C17D5D00076A8B0 /* SiteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E56A15231C16D3FE00FDE409 /* SiteDetailNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteDetailNavViewController.swift; sourceTree = "<group>"; };
-		E56A15251C16D5AF00FDE409 /* SiteListNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteListNavViewController.swift; sourceTree = "<group>"; };
 		E56A15271C16DA9000FDE409 /* SiteListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteListTableViewController.swift; sourceTree = "<group>"; };
+		E56A15291C17840500FDE409 /* SiteDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteDetailTableViewController.swift; sourceTree = "<group>"; };
+		E56A152B1C178F6000FDE409 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		E58844DF1C154A5D008C2E09 /* Map Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Map Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58844E21C154A5D008C2E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E58844E41C154A5D008C2E09 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +41,7 @@
 		E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E58844FE1C156BD5008C2E09 /* Site.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		E593CF061C17D5D00076A8B0 /* SiteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,19 +77,20 @@
 			isa = PBXGroup;
 			children = (
 				E58844E21C154A5D008C2E09 /* AppDelegate.swift */,
-				E58844E41C154A5D008C2E09 /* MapViewController.swift */,
-				E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */,
-				E58844E61C154A5D008C2E09 /* Main.storyboard */,
 				E58844EC1C154A5D008C2E09 /* Assets.xcassets */,
-				E58844EE1C154A5D008C2E09 /* LaunchScreen.storyboard */,
 				E58844F11C154A5D008C2E09 /* Info.plist */,
+				E58844EE1C154A5D008C2E09 /* LaunchScreen.storyboard */,
+				E58844E61C154A5D008C2E09 /* Main.storyboard */,
 				E58844E91C154A5D008C2E09 /* MapNotes.xcdatamodeld */,
-				E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */,
-				E58844FE1C156BD5008C2E09 /* Site.swift */,
+				E58844E41C154A5D008C2E09 /* MapViewController.swift */,
 				E58844FB1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift */,
-				E56A15231C16D3FE00FDE409 /* SiteDetailNavViewController.swift */,
-				E56A15251C16D5AF00FDE409 /* SiteListNavViewController.swift */,
+				E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */,
+				E58844FE1C156BD5008C2E09 /* Site.swift */,
+				E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */,
 				E56A15271C16DA9000FDE409 /* SiteListTableViewController.swift */,
+				E56A15291C17840500FDE409 /* SiteDetailTableViewController.swift */,
+				E56A152B1C178F6000FDE409 /* TitleTableViewCell.swift */,
+				E593CF061C17D5D00076A8B0 /* SiteTableViewCell.swift */,
 			);
 			path = "Map Notes";
 			sourceTree = "<group>";
@@ -169,11 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56A15241C16D3FE00FDE409 /* SiteDetailNavViewController.swift in Sources */,
 				E58845001C156BD5008C2E09 /* Site.swift in Sources */,
+				E593CF071C17D5D00076A8B0 /* SiteTableViewCell.swift in Sources */,
 				E58844FF1C156BD5008C2E09 /* Site+CoreDataProperties.swift in Sources */,
+				E56A152C1C178F6000FDE409 /* TitleTableViewCell.swift in Sources */,
+				E56A152A1C17840500FDE409 /* SiteDetailTableViewController.swift in Sources */,
 				E58844FA1C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift in Sources */,
-				E56A15261C16D5AF00FDE409 /* SiteListNavViewController.swift in Sources */,
 				E58844E51C154A5D008C2E09 /* MapViewController.swift in Sources */,
 				E58844EB1C154A5D008C2E09 /* MapNotes.xcdatamodeld in Sources */,
 				E58844FC1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift in Sources */,
