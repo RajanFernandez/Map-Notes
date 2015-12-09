@@ -10,7 +10,9 @@ import UIKit
 import MapKit
 import CoreData
 
-class SiteDetailTableViewController: UITableViewController {
+let NOTE_PLACEHOLDER = "Tap to add a note"
+
+class SiteDetailTableViewController : UITableViewController {
     
     var siteID: NSManagedObjectID? = nil
     var site: Site? = nil
@@ -26,21 +28,16 @@ class SiteDetailTableViewController: UITableViewController {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("cancelButtonPressed"))
         }
         
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
         if siteID != nil {
             getSiteWithSiteID()
         } else if currentLocation != nil {
             newSiteWithLocation(currentLocation!)
         }
-
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        
     }
     
     // gets an existing site from the store with the managed object id
@@ -52,7 +49,6 @@ class SiteDetailTableViewController: UITableViewController {
         } catch {
             print("Could not get the requested site from the store")
         }
-        
     }
     
     func newSiteWithLocation(location: CLLocation) {
@@ -61,7 +57,6 @@ class SiteDetailTableViewController: UITableViewController {
         if site != nil {
             site!.setWithCLLocation(currentLocation!)
         }
-        
     }
 
     // MARK: - Table view data source
@@ -124,7 +119,7 @@ class SiteDetailTableViewController: UITableViewController {
         case 2:
             let cell = tableView.dequeueReusableCellWithIdentifier("NoteCell")!
             if site?.note == nil || site?.note == "" {
-                cell.textLabel!.text = "Note"
+                cell.textLabel!.text = NOTE_PLACEHOLDER
                 cell.textLabel!.textColor = UIColor.grayColor()
             } else {
                 cell.textLabel!.text = site?.note
@@ -136,7 +131,6 @@ class SiteDetailTableViewController: UITableViewController {
             let cell = UITableViewCell.init(style: .Default, reuseIdentifier: "default")
             return cell
         }
-
     }
     
     
@@ -150,7 +144,7 @@ class SiteDetailTableViewController: UITableViewController {
             cell.textField.becomeFirstResponder()
         case 2:
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            
+            self.performSegueWithIdentifier("DetailsToNote", sender: self)
         default:
             break
         }
@@ -165,7 +159,6 @@ class SiteDetailTableViewController: UITableViewController {
         // get the site properties
         let titleCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! TitleTableViewCell
         site!.title = titleCell.textField.text
-        // GET NOTE CELL CONTENTS HERE
         
         // save the site and return
         do {
@@ -195,40 +188,22 @@ class SiteDetailTableViewController: UITableViewController {
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let siteNoteNavVC = segue.destinationViewController as! UINavigationController
+        let siteNoteVC = siteNoteNavVC.viewControllers.first as! SiteNoteViewController
+        
+        siteNoteVC.textViewDelegate = self
+        
+        if site != nil {
+            if site!.note != nil && site!.note != NOTE_PLACEHOLDER {
+                siteNoteVC.existingNote = site!.note
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 }

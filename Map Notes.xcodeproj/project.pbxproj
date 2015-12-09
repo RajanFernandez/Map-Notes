@@ -22,6 +22,8 @@
 		E58844FF1C156BD5008C2E09 /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */; };
 		E58845001C156BD5008C2E09 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58844FE1C156BD5008C2E09 /* Site.swift */; };
 		E593CF071C17D5D00076A8B0 /* SiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593CF061C17D5D00076A8B0 /* SiteTableViewCell.swift */; };
+		E593CF091C17FF7D0076A8B0 /* SiteNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593CF081C17FF7D0076A8B0 /* SiteNoteViewController.swift */; };
+		E593CF0B1C1815A40076A8B0 /* SiteDetailTableViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593CF0A1C1815A40076A8B0 /* SiteDetailTableViewController+UITextViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E58844FE1C156BD5008C2E09 /* Site.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		E593CF061C17D5D00076A8B0 /* SiteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteTableViewCell.swift; sourceTree = "<group>"; };
+		E593CF081C17FF7D0076A8B0 /* SiteNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteNoteViewController.swift; sourceTree = "<group>"; };
+		E593CF0A1C1815A40076A8B0 /* SiteDetailTableViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SiteDetailTableViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +91,12 @@
 				E58844F91C154CDF008C2E09 /* MapViewController+MKMapViewDelegate.swift */,
 				E58844FE1C156BD5008C2E09 /* Site.swift */,
 				E58844FD1C156BD5008C2E09 /* Site+CoreDataProperties.swift */,
-				E56A15271C16DA9000FDE409 /* SiteListTableViewController.swift */,
 				E56A15291C17840500FDE409 /* SiteDetailTableViewController.swift */,
-				E56A152B1C178F6000FDE409 /* TitleTableViewCell.swift */,
+				E593CF0A1C1815A40076A8B0 /* SiteDetailTableViewController+UITextViewDelegate.swift */,
+				E56A15271C16DA9000FDE409 /* SiteListTableViewController.swift */,
+				E593CF081C17FF7D0076A8B0 /* SiteNoteViewController.swift */,
 				E593CF061C17D5D00076A8B0 /* SiteTableViewCell.swift */,
+				E56A152B1C178F6000FDE409 /* TitleTableViewCell.swift */,
 			);
 			path = "Map Notes";
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E58845001C156BD5008C2E09 /* Site.swift in Sources */,
+				E593CF091C17FF7D0076A8B0 /* SiteNoteViewController.swift in Sources */,
 				E593CF071C17D5D00076A8B0 /* SiteTableViewCell.swift in Sources */,
 				E58844FF1C156BD5008C2E09 /* Site+CoreDataProperties.swift in Sources */,
 				E56A152C1C178F6000FDE409 /* TitleTableViewCell.swift in Sources */,
@@ -182,6 +189,7 @@
 				E58844EB1C154A5D008C2E09 /* MapNotes.xcdatamodeld in Sources */,
 				E58844FC1C155825008C2E09 /* MapViewController+CLLocationManagerDelegate.swift in Sources */,
 				E56A15281C16DA9000FDE409 /* SiteListTableViewController.swift in Sources */,
+				E593CF0B1C1815A40076A8B0 /* SiteDetailTableViewController+UITextViewDelegate.swift in Sources */,
 				E58844E31C154A5D008C2E09 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
