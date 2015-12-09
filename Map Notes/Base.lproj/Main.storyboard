@@ -31,7 +31,7 @@
                                 <items>
                                     <barButtonItem title="Drop Pin" id="or9-N2-FKL">
                                         <connections>
-                                            <segue destination="A4w-5u-FZV" kind="presentation" identifier="DropPin" id="zqa-a1-tIl"/>
+                                            <segue destination="A4w-5u-FZV" kind="presentation" identifier="MapToDetails" id="zqa-a1-tIl"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

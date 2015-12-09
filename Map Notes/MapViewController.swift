@@ -120,13 +120,23 @@ class MapViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "DropPin" {
+        if segue.identifier == "MapToDetails" {
+            
             let siteDetailNavVC = segue.destinationViewController as! UINavigationController
             let siteDetailVC = siteDetailNavVC.viewControllers.first as! SiteDetailTableViewController
-            siteDetailVC.currentLocation = currentLocation
+            
+            if sender is UIBarButtonItem {
+                
+                siteDetailVC.currentLocation = currentLocation
+                
+            } else if sender is MKAnnotationView {
+                
+                let site = sender?.annotation as! Site
+                let siteID = site.objectID
+                siteDetailVC.siteID = siteID
+                
+            }
         }
-        
-        
     }
 
 }

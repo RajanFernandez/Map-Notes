@@ -37,4 +37,11 @@ extension MapViewController : MKMapViewDelegate {
         return nil
     }
     
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        self.performSegueWithIdentifier("MapToDetails", sender: view)
+    }
+    
+    
+    
 }
